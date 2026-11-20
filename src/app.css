@@ -1,0 +1,263 @@
+/* App-specific styles: the game list, job buttons and progress bars. */
+
+.center {
+  text-align: center;
+}
+
+a.icon-btn {
+  text-decoration: none;
+}
+
+.topbar h1 {
+  font-weight: 700;
+}
+
+/* ---------- Progress ---------- */
+
+.progress {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 104px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bar {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: var(--green);
+  transition: width 0.25s;
+}
+
+.bar-num {
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+/* ---------- Search, chips, sort ---------- */
+
+.search {
+  position: relative;
+  color: var(--muted);
+}
+
+.search > svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search .input {
+  padding-left: 44px;
+  background: var(--surface);
+}
+
+.chip-n {
+  font-weight: 600;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.chip.owner.on {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: #fff;
+}
+
+:root[data-theme='dark'] .chip.owner.on {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+.sortrow {
+  min-height: 36px;
+}
+
+.seg.mini {
+  gap: 4px;
+}
+
+.seg.mini button {
+  min-height: 34px;
+  padding: 2px 11px;
+  font-size: 0.88rem;
+}
+
+.seg.mini button:not(.on) {
+  background: var(--surface);
+}
+
+/* ---------- Game list ---------- */
+
+.group {
+  display: grid;
+  gap: 8px;
+}
+
+.group-head {
+  margin: 6px 4px 0;
+  font-size: 1rem;
+}
+
+.group-head .muted {
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.games {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px 6px 4px;
+}
+
+.game + .game {
+  border-top: 1px solid var(--border);
+}
+
+.game-main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.game-main:active {
+  background: var(--surface-2);
+}
+
+.game-name {
+  font-weight: 700;
+  font-size: 1.02rem;
+  overflow-wrap: anywhere;
+}
+
+.game-sub,
+.game-extra {
+  color: var(--muted);
+  font-size: 0.86rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-extra {
+  font-size: 0.82rem;
+}
+
+.game.done .game-name::after {
+  content: ' ✓';
+  color: var(--green);
+}
+
+/* A job (sleeves / insert) on a game row. */
+.job {
+  flex: none;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 3px;
+  width: 66px;
+  min-height: 56px;
+  padding: 6px 2px;
+  border: 1.5px dashed var(--todo);
+  border-radius: 12px;
+  background: var(--todo-soft);
+  color: var(--todo);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: transform 0.08s;
+}
+
+.job:active {
+  transform: scale(0.94);
+}
+
+.job.done {
+  border: 1.5px solid var(--green);
+  background: var(--green);
+  color: var(--on-green);
+}
+
+.job.na {
+  border: 1.5px solid transparent;
+  background: none;
+  color: var(--muted);
+  opacity: 0.55;
+  font-weight: 600;
+}
+
+.job-ico {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.job .tick {
+  position: absolute;
+  right: -11px;
+  top: -7px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--on-green);
+  color: var(--green);
+}
+
+.fab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 560px) {
+  .job {
+    width: 84px;
+    font-size: 0.8rem;
+  }
+}
