@@ -139,7 +139,9 @@
     <button class="btn danger" onclick={eraseAll}>Erase every game on this device</button>
   </section>
 
-  <p class="muted small center">Earl's Game Tracker v{__APP_VERSION__} · made with 🎲</p>
+  <p class="muted small center">
+    Earl's Game Tracker v{__APP_VERSION__} · made with 🎲 · <a href="https://milkneggs.github.io/pitch/earlsgametracker.html" target="_blank" rel="noopener">See what it does</a>
+  </p>
 </main>
 
 <style>

@@ -2,6 +2,7 @@
   import { distinct, newGame, sortKey } from '../lib/data';
   import { app, save, toast } from '../lib/store.svelte';
   import type { Game, Step } from '../lib/types';
+  import Icon from './Icon.svelte';
   import Sheet from './Sheet.svelte';
 
   // Add a game (no `game`) or edit one. Edits are made on a copy and saved with the Save button.
@@ -116,7 +117,7 @@
     </div>
 
     <div class="field">
-      <span class="field-label">🃏 Sleeves</span>
+      <span class="field-label"><Icon name="sleeve" size={18} /> Sleeves</span>
       <div class="seg">
         {#each SLEEVES as [s, label] (s)}
           <button type="button" class:on={draft.sleeves === s} class:good={s === 'done'} onclick={() => (draft.sleeves = s)}>{label}</button>
@@ -128,7 +129,7 @@
     </div>
 
     <div class="field">
-      <span class="field-label">🖨️ Insert</span>
+      <span class="field-label"><Icon name="printer" size={18} /> Insert</span>
       <div class="seg">
         {#each INSERT as [s, label] (s)}
           <button type="button" class:on={draft.insert === s} class:good={s === 'done'} onclick={() => (draft.insert = s)}>{label}</button>
@@ -167,6 +168,9 @@
     font-weight: 600;
   }
   .field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-weight: 700;
     font-size: 0.9rem;
   }

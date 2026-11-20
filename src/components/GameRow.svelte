@@ -19,7 +19,7 @@
   <button class="game-main" onclick={onedit}>
     <span class="game-name">{game.name}</span>
     {#if sub}<span class="game-sub">{sub}</span>{/if}
-    {#if game.sleeves === 'todo' && game.sleeveInfo}<span class="game-extra">🃏 {game.sleeveInfo}</span>{/if}
+    {#if game.sleeves === 'todo' && game.sleeveInfo}<span class="game-extra">Sleeves: {game.sleeveInfo}</span>{/if}
     {#if game.notes}<span class="game-extra">{game.notes}</span>{/if}
   </button>
   <StepButton kind="sleeves" step={game.sleeves} onflip={() => flip('sleeves')} {onedit} />
